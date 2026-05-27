@@ -186,7 +186,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="8dp"
             android:contentDescription="Send"
-            android:src="@drawable/outline_alarm_24" />
+            android:src="@drawable/outline_call_made_24" />
     </LinearLayout>
 
     <!-- Bottom Navigation -->
