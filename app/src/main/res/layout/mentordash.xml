@@ -1,181 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mentorDashMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88A0D0">
+    android:background="@color/secondary_blue">
 
-    <TextView
-        android:id="@+id/codeTutorTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/code_tutor"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/mentorDashboardTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mentor_dashboard"
-        android:textColor="#000000"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/codeTutorTitle" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ticketContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_rectanglegrey"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mentorDashboardTitle">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="32dp"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/resolveTicketTitle"
+            android:id="@+id/codeTutorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/resolve_ticket"
-            android:textColor="#000000"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/code_tutor"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/resolveTicketDesc"
+            android:id="@+id/mentorDashboardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/resolve_ticket_desc"
-            android:textColor="#000000"
+            android:layout_marginTop="4dp"
+            android:text="@string/mentor_dashboard"
+            android:textColor="@color/white"
             android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/resolveTicketTitle" />
+            android:alpha="0.8" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        android:paddingHorizontal="24dp"
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavCard"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/resolveTicketDesc">
+            android:orientation="vertical">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnYes"
-                android:layout_width="0dp"
+            <!-- Resolve Ticket Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ticketContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="#27456F"
-                android:text="@string/yes"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                app:cornerRadius="30dp" />
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnNo"
-                android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/resolveTicketTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/resolve_ticket"
+                        android:textColor="@color/text_main"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/resolveTicketDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/resolve_ticket_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnYes"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/yes"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_blue"
+                            app:cornerRadius="16dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNo"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/no"
+                            android:textAllCaps="false"
+                            android:textColor="@color/text_secondary"
+                            app:cornerRadius="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Ticket 125 Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/ticket125Container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="#27456F"
-                android:text="@string/no"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                app:cornerRadius="30dp" />
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/ticket125Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ticket_125"
+                        android:textColor="@color/text_main"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ticket125Desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/ticket_125_desc"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnYes2"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/yes"
+                            android:textAllCaps="false"
+                            android:textColor="@color/primary_blue"
+                            app:cornerRadius="16dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/btnNo2"
+                            style="@style/Widget.Material3.Button.TonalButton"
+                            android:layout_width="0dp"
+                            android:layout_height="56dp"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="@string/no"
+                            android:textAllCaps="false"
+                            android:textColor="@color/text_secondary"
+                            app:cornerRadius="16dp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
         </LinearLayout>
+    </ScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/ticket125Container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_rectanglegrey"
-        android:padding="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ticketContainer">
-
-        <TextView
-            android:id="@+id/ticket125Title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/ticket_125"
-            android:textColor="#000000"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/ticket125Desc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/ticket_125_desc"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ticket125Title" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/ticket125Desc">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnYes2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="#27456F"
-                android:text="@string/yes"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                app:cornerRadius="30dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnNo2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_weight="1"
-                android:backgroundTint="#27456F"
-                android:text="@string/no"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                app:cornerRadius="30dp" />
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomNav"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavCard"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -187,97 +210,113 @@
             <LinearLayout
                 android:id="@+id/navHome"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/outline_add_home_24" />
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@string/home"
+                    android:src="@drawable/outline_add_home_24"
+                    app:tint="@color/primary_blue" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/home"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/primary_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navActiveChats"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/outline_add_comment_24" />
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@string/active_chats"
+                    android:src="@drawable/outline_add_comment_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/active_chats"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navBookings"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/outline_alarm_24" />
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@string/bookings"
+                    android:src="@drawable/outline_alarm_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/bookings"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navProfile"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/outline_account_circle_24" />
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:contentDescription="@string/profile"
+                    android:src="@drawable/outline_account_circle_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/profile"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
         </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

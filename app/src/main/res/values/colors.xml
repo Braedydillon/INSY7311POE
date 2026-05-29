@@ -2,4 +2,16 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- High Fidelity Palette -->
+    <color name="primary_blue">#27456F</color>
+    <color name="secondary_blue">#88A0D0</color>
+    <color name="accent_blue">#AABADB</color>
+    <color name="light_gray">#F5F7FA</color>
+    <color name="text_main">#1A1C1E</color>
+    <color name="text_secondary">#44474E</color>
+
+    <!-- Bubble Colors -->
+    <color name="chat_bubble_received">#FFFFFF</color>
+    <color name="chat_bubble_sent">#D9E2FF</color>
 </resources>

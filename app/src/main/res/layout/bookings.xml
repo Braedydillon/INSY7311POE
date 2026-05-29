@@ -5,100 +5,93 @@
     android:id="@+id/bookingsMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88A0D0">
+    android:background="@color/secondary_blue">
 
     <TextView
         android:id="@+id/codeTutorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:text="@string/code_tutor"
-        android:textColor="#000000"
-        android:textSize="34sp"
+        android:textColor="@color/white"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/bookingsTitle"
-        android:layout_width="wrap_content"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/successCard"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bookings"
-        android:textColor="#000000"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/codeTutorTitle" />
+        android:layout_margin="32dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/codeTutorTitle"
+        app:layout_constraintVertical_bias="0.4"
+        app:strokeWidth="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/successContainer"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/rounded_rectanglegrey"
-        android:padding="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bookingsTitle">
-
-        <TextView
-            android:id="@+id/successTitle"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/success"
-            android:textColor="#000000"
-            android:textSize="32sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/bookingConfirmedText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/booking_confirmed"
-            android:textColor="#000000"
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/successTitle" />
-
-        <TextView
-            android:id="@+id/sessionDetailsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
             android:gravity="center"
-            android:text="@string/session_confirmed_text"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bookingConfirmedText" />
+            android:orientation="vertical"
+            android:padding="32dp">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnOkay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:backgroundTint="#27456F"
-            android:paddingStart="40dp"
-            android:paddingEnd="40dp"
-            android:text="@string/okay"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            app:cornerRadius="30dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sessionDetailsText" />
+            <!-- Placeholder for a success icon -->
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="24dp"
+                android:src="@drawable/outline_alarm_24"
+                app:tint="@color/primary_blue" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/successTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/success"
+                android:textColor="@color/text_main"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bookingConfirmedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/booking_confirmed"
+                android:textColor="@color/primary_blue"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/sessionDetailsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center"
+                android:text="@string/session_confirmed_text"
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOkay"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/primary_blue"
+                android:text="@string/okay"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:cornerRadius="16dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

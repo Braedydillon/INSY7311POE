@@ -4,177 +4,248 @@
     android:id="@+id/settingsMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88A0D0">
+    android:background="@color/secondary_blue">
 
-    <TextView
-        android:id="@+id/codeTutorTitle"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="@string/code_tutor"
-        android:textColor="#000000"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="32dp"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/mentorPreferencesTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/mentor_preferences"
-        android:textColor="#000000"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/codeTutorTitle" />
+        <TextView
+            android:id="@+id/codeTutorTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/code_tutor"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/statusAvailabilityHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_rectanglegrey"
-        android:backgroundTint="#27456F"
+        <TextView
+            android:id="@+id/mentorPreferencesTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/mentor_preferences"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:alpha="0.8" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
         android:paddingHorizontal="24dp"
-        android:paddingVertical="8dp"
-        android:text="@string/active_status_availability"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mentorPreferencesTitle" />
+        android:paddingBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavCard"
+        app:layout_constraintTop_toBottomOf="@id/headerLayout">
 
-    <com.google.android.material.slider.Slider
-        android:id="@+id/statusSlider"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
-        android:value="0.5"
-        android:valueFrom="0.0"
-        android:valueTo="1.0"
-        app:haloColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/statusAvailabilityHeader"
-        app:thumbColor="#000000"
-        app:thumbRadius="20dp"
-        app:trackColorActive="#6200EE"
-        app:trackColorInactive="#FFFFFF" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/inactiveLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/inactive"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@id/statusSlider"
-        app:layout_constraintTop_toBottomOf="@id/statusSlider" />
+            <!-- Availability Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
 
-    <TextView
-        android:id="@+id/activeLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="@string/active"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@id/statusSlider"
-        app:layout_constraintTop_toBottomOf="@id/statusSlider" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
 
-    <TextView
-        android:id="@+id/expertiseLevelTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/student_expertise_level"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inactiveLabel" />
+                    <TextView
+                        android:id="@+id/statusAvailabilityHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/active_status_availability"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/enterProficiencyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/enter_proficiency"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expertiseLevelTitle" />
+                    <com.google.android.material.slider.Slider
+                        android:id="@+id/statusSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:value="0.5"
+                        android:valueFrom="0.0"
+                        android:valueTo="1.0"
+                        app:thumbColor="@color/primary_blue"
+                        app:trackColorActive="@color/primary_blue"
+                        app:trackColorInactive="@color/light_gray" />
 
-    <TextView
-        android:id="@+id/expertiseLevelTitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/student_expertise_level"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/enterProficiencyText" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp">
 
-    <TextView
-        android:id="@+id/javaExpertise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="12dp"
-        android:text="@string/java_expertise"
-        android:textColor="#000000"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/expertiseLevelTitle2" />
+                        <TextView
+                            android:id="@+id/inactiveLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/inactive"
+                            android:textColor="@color/text_secondary"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/csharpExpertise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/csharp_expertise"
-        android:textColor="#000000"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/javaExpertise" />
+                        <TextView
+                            android:id="@+id/activeLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/active"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/pythonExpertise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/python_expertise"
-        android:textColor="#000000"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/csharpExpertise" />
+            <!-- Expertise Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
+                app:strokeWidth="0dp">
 
-    <!-- Bottom Navigation -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bottomNav"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="24dp">
+
+                    <TextView
+                        android:id="@+id/expertiseLevelTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/student_expertise_level"
+                        android:textColor="@color/text_main"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/enterProficiencyText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/enter_proficiency"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="14sp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="16dp"
+                        android:background="@color/light_gray" />
+
+                    <!-- Expertise Items -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/outline_account_circle_24"
+                            app:tint="@color/primary_blue" />
+
+                        <TextView
+                            android:id="@+id/javaExpertise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/java_expertise"
+                            android:textColor="@color/text_main"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/outline_account_circle_24"
+                            app:tint="@color/primary_blue" />
+
+                        <TextView
+                            android:id="@+id/csharpExpertise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/csharp_expertise"
+                            android:textColor="@color/text_main"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingVertical="8dp">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/outline_account_circle_24"
+                            app:tint="@color/primary_blue" />
+
+                        <TextView
+                            android:id="@+id/pythonExpertise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:text="@string/python_expertise"
+                            android:textColor="@color/text_main"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomNavCard"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:background="@drawable/rounded_rectangle"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:strokeWidth="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -186,101 +257,113 @@
             <LinearLayout
                 android:id="@+id/navHome"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:contentDescription="@string/home"
-                    android:src="@drawable/outline_add_home_24" />
+                    android:src="@drawable/outline_add_home_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/home"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navActiveChats"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:contentDescription="@string/active_chats"
-                    android:src="@drawable/outline_add_comment_24" />
+                    android:src="@drawable/outline_add_comment_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/active_chats"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navBookings"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:contentDescription="@string/bookings"
-                    android:src="@drawable/outline_alarm_24" />
+                    android:src="@drawable/outline_alarm_24"
+                    app:tint="@color/text_secondary" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/bookings"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/navProfile"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="?attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
                     android:contentDescription="@string/profile"
-                    android:src="@drawable/outline_account_circle_24" />
+                    android:src="@drawable/outline_account_circle_24"
+                    app:tint="@color/primary_blue" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/profile"
-                    android:textColor="#000000"
-                    android:textSize="12sp" />
+                    android:textColor="@color/primary_blue"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
