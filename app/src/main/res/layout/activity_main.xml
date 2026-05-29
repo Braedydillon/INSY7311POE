@@ -90,7 +90,7 @@
                 app:boxCornerRadiusTopStart="16dp"
                 app:boxStrokeWidth="0dp"
                 app:passwordToggleEnabled="true"
-                app:startIconDrawable="@drawable/outline_alarm_24"> <!-- Using alarm temporarily if lock icon is missing -->
+                app:startIconDrawable="@drawable/lock"> <!-- Using alarm temporarily if lock icon is missing -->
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/Password"
